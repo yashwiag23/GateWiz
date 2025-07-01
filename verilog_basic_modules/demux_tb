@@ -1,0 +1,74 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000203aa317900 .scope module, "demux_tb" "demux_tb" 2 4;
+ .timescale -9 -9;
+v00000203aa321fb0_0 .var "control", 0 0;
+v00000203aa321b50_0 .var "data_in", 99 0;
+v00000203aa321c90_0 .net "out1", 99 0, L_00000203aa321dd0;  1 drivers
+v00000203aa3218d0_0 .net "out2", 99 0, L_00000203aa321830;  1 drivers
+S_00000203aa317c60 .scope module, "uut" "demux" 2 10, 3 1 0, S_00000203aa317900;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 100 "data_in";
+    .port_info 1 /INPUT 1 "control";
+    .port_info 2 /OUTPUT 100 "out1";
+    .port_info 3 /OUTPUT 100 "out2";
+v00000203aa317650_0 .net *"_ivl_0", 31 0, L_00000203aa321d30;  1 drivers
+v00000203aa317df0_0 .net *"_ivl_12", 31 0, L_00000203aa3222d0;  1 drivers
+L_00000203aa36fd30 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v00000203aa317e90_0 .net *"_ivl_15", 30 0, L_00000203aa36fd30;  1 drivers
+L_00000203aa36fd78 .functor BUFT 1, C4<00000000000000000000000000000001>, C4<0>, C4<0>, C4<0>;
+v00000203aa2d6530_0 .net/2u *"_ivl_16", 31 0, L_00000203aa36fd78;  1 drivers
+v00000203aa2d65d0_0 .net *"_ivl_18", 0 0, L_00000203aa3220f0;  1 drivers
+L_00000203aa36fdc0 .functor BUFT 1, C4<0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v00000203aa2d6670_0 .net/2u *"_ivl_20", 99 0, L_00000203aa36fdc0;  1 drivers
+L_00000203aa36fc58 .functor BUFT 1, C4<0000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v00000203aa2d6710_0 .net *"_ivl_3", 30 0, L_00000203aa36fc58;  1 drivers
+L_00000203aa36fca0 .functor BUFT 1, C4<00000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v00000203aa2d67b0_0 .net/2u *"_ivl_4", 31 0, L_00000203aa36fca0;  1 drivers
+v00000203aa2d6850_0 .net *"_ivl_6", 0 0, L_00000203aa321bf0;  1 drivers
+L_00000203aa36fce8 .functor BUFT 1, C4<0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v00000203aa3216f0_0 .net/2u *"_ivl_8", 99 0, L_00000203aa36fce8;  1 drivers
+v00000203aa321f10_0 .net "control", 0 0, v00000203aa321fb0_0;  1 drivers
+v00000203aa322190_0 .net "data_in", 99 0, v00000203aa321b50_0;  1 drivers
+v00000203aa321ab0_0 .net "out1", 99 0, L_00000203aa321dd0;  alias, 1 drivers
+v00000203aa322230_0 .net "out2", 99 0, L_00000203aa321830;  alias, 1 drivers
+L_00000203aa321d30 .concat [ 1 31 0 0], v00000203aa321fb0_0, L_00000203aa36fc58;
+L_00000203aa321bf0 .cmp/eq 32, L_00000203aa321d30, L_00000203aa36fca0;
+L_00000203aa321dd0 .functor MUXZ 100, L_00000203aa36fce8, v00000203aa321b50_0, L_00000203aa321bf0, C4<>;
+L_00000203aa3222d0 .concat [ 1 31 0 0], v00000203aa321fb0_0, L_00000203aa36fd30;
+L_00000203aa3220f0 .cmp/eq 32, L_00000203aa3222d0, L_00000203aa36fd78;
+L_00000203aa321830 .functor MUXZ 100, L_00000203aa36fdc0, v00000203aa321b50_0, L_00000203aa3220f0, C4<>;
+    .scope S_00000203aa317900;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "demux_tb.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000203aa317900 {0 0 0};
+    %vpi_call 2 17 "$monitor", "data_in = %b, control = %b | out1 = %b, out2 = %b", v00000203aa321b50_0, v00000203aa321fb0_0, v00000203aa321c90_0, v00000203aa3218d0_0 {0 0 0};
+    %vpi_func 2 19 "$random" 32 {0 0 0};
+    %pad/s 100;
+    %store/vec4 v00000203aa321b50_0, 0, 100;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000203aa321fb0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_func 2 22 "$random" 32 {0 0 0};
+    %pad/s 100;
+    %store/vec4 v00000203aa321b50_0, 0, 100;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000203aa321fb0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 25 "$display", "test complete" {0 0 0};
+    %vpi_call 2 26 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "demux_tb.v";
+    "./demux.v";

@@ -1,0 +1,87 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000020f71c2a630 .scope module, "mux64to1_8bit_tb" "mux64to1_8bit_tb" 2 4;
+ .timescale -9 -9;
+v0000020f71c267b0_0 .var "sel", 5 0;
+v0000020f71c26850_0 .net "treasure", 7 0, L_0000020f71ce3410;  1 drivers
+v0000020f71c268f0_0 .var "vault", 511 0;
+S_0000020f71cd6790 .scope module, "uut" "mux64to1_8bit" 2 10, 3 1 0, S_0000020f71c2a630;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 6 "sel";
+    .port_info 1 /INPUT 512 "vault";
+    .port_info 2 /OUTPUT 8 "treasure";
+v0000020f71c2a7c0_0 .net *"_ivl_0", 31 0, L_0000020f71ce32d0;  1 drivers
+L_0000020f71d2b838 .functor BUFT 1, C4<00000000000000000000000000>, C4<0>, C4<0>, C4<0>;
+v0000020f71cd6920_0 .net *"_ivl_3", 25 0, L_0000020f71d2b838;  1 drivers
+L_0000020f71d2b880 .functor BUFT 1, C4<00000000000000000000000000001000>, C4<0>, C4<0>, C4<0>;
+v0000020f71cd69c0_0 .net/2u *"_ivl_4", 31 0, L_0000020f71d2b880;  1 drivers
+v0000020f71c26530_0 .net *"_ivl_7", 31 0, L_0000020f71ce3370;  1 drivers
+v0000020f71c265d0_0 .net "sel", 5 0, v0000020f71c267b0_0;  1 drivers
+v0000020f71c26670_0 .net "treasure", 7 0, L_0000020f71ce3410;  alias, 1 drivers
+v0000020f71c26710_0 .net "vault", 511 0, v0000020f71c268f0_0;  1 drivers
+L_0000020f71ce32d0 .concat [ 6 26 0 0], v0000020f71c267b0_0, L_0000020f71d2b838;
+L_0000020f71ce3370 .arith/mult 32, L_0000020f71ce32d0, L_0000020f71d2b880;
+L_0000020f71ce3410 .part/v v0000020f71c268f0_0, L_0000020f71ce3370, 8;
+    .scope S_0000020f71c2a630;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "mux64to1_8bit_tb.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000020f71c2a630 {0 0 0};
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %vpi_func 2 16 "$random" 32 {0 0 0};
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0000020f71c268f0_0, 0, 512;
+    %vpi_func 2 17 "$random" 32 {0 0 0};
+    %pad/s 6;
+    %store/vec4 v0000020f71c267b0_0, 0, 6;
+    %delay 20, 0;
+    %vpi_call 2 19 "$display", "sel = %0d, vault = %h | treasure = %h", v0000020f71c267b0_0, v0000020f71c268f0_0, v0000020f71c26850_0 {0 0 0};
+    %vpi_func 2 21 "$random" 32 {0 0 0};
+    %pad/s 6;
+    %store/vec4 v0000020f71c267b0_0, 0, 6;
+    %delay 20, 0;
+    %vpi_call 2 23 "$display", "sel = %0d, treasure = %b", v0000020f71c267b0_0, v0000020f71c26850_0 {0 0 0};
+    %vpi_call 2 26 "$display", "test complete" {0 0 0};
+    %vpi_call 2 27 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux64to1_8bit_tb.v";
+    "./mux64to1_8bit.v";
